@@ -34,6 +34,7 @@
 				<Option type="1"/>
 				<Option compiler="gcc"/>
 				<Compiler>
+					<Add directory="/home/ewa/Dokumenty/GIS/projekt_Clion/./include"/>
 					<Add directory="/usr/include/c++/7"/>
 					<Add directory="/usr/include/x86_64-linux-gnu/c++/7"/>
 					<Add directory="/usr/include/c++/7/backward"/>
@@ -57,6 +58,7 @@
 				<Option type="1"/>
 				<Option compiler="gcc"/>
 				<Compiler>
+					<Add directory="/home/ewa/Dokumenty/GIS/projekt_Clion/./include"/>
 					<Add directory="/usr/include/c++/7"/>
 					<Add directory="/usr/include/x86_64-linux-gnu/c++/7"/>
 					<Add directory="/usr/include/c++/7/backward"/>
@@ -87,7 +89,22 @@
 		<Unit filename="/home/ewa/Dokumenty/GIS/projekt_Clion/include/Edge.h">
 			<Option target="GIS"/>
 		</Unit>
+		<Unit filename="/home/ewa/Dokumenty/GIS/projekt_Clion/include/Graph.h">
+			<Option target="GIS"/>
+		</Unit>
+		<Unit filename="/home/ewa/Dokumenty/GIS/projekt_Clion/include/Parser.h">
+			<Option target="GIS"/>
+		</Unit>
 		<Unit filename="/home/ewa/Dokumenty/GIS/projekt_Clion/main.cpp">
+			<Option target="GIS"/>
+		</Unit>
+		<Unit filename="/home/ewa/Dokumenty/GIS/projekt_Clion/src/Edge.cpp">
+			<Option target="GIS"/>
+		</Unit>
+		<Unit filename="/home/ewa/Dokumenty/GIS/projekt_Clion/src/Graph.cpp">
+			<Option target="GIS"/>
+		</Unit>
+		<Unit filename="/home/ewa/Dokumenty/GIS/projekt_Clion/src/Parser.cpp">
 			<Option target="GIS"/>
 		</Unit>
 		<Unit filename="/home/ewa/Dokumenty/GIS/projekt_Clion/CMakeLists.txt">

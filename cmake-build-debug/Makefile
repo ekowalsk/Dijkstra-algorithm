@@ -150,6 +150,87 @@ main.cpp.s:
 	$(MAKE) -f CMakeFiles/GIS.dir/build.make CMakeFiles/GIS.dir/main.cpp.s
 .PHONY : main.cpp.s
 
+src/Edge.o: src/Edge.cpp.o
+
+.PHONY : src/Edge.o
+
+# target to build an object file
+src/Edge.cpp.o:
+	$(MAKE) -f CMakeFiles/GIS.dir/build.make CMakeFiles/GIS.dir/src/Edge.cpp.o
+.PHONY : src/Edge.cpp.o
+
+src/Edge.i: src/Edge.cpp.i
+
+.PHONY : src/Edge.i
+
+# target to preprocess a source file
+src/Edge.cpp.i:
+	$(MAKE) -f CMakeFiles/GIS.dir/build.make CMakeFiles/GIS.dir/src/Edge.cpp.i
+.PHONY : src/Edge.cpp.i
+
+src/Edge.s: src/Edge.cpp.s
+
+.PHONY : src/Edge.s
+
+# target to generate assembly for a file
+src/Edge.cpp.s:
+	$(MAKE) -f CMakeFiles/GIS.dir/build.make CMakeFiles/GIS.dir/src/Edge.cpp.s
+.PHONY : src/Edge.cpp.s
+
+src/Graph.o: src/Graph.cpp.o
+
+.PHONY : src/Graph.o
+
+# target to build an object file
+src/Graph.cpp.o:
+	$(MAKE) -f CMakeFiles/GIS.dir/build.make CMakeFiles/GIS.dir/src/Graph.cpp.o
+.PHONY : src/Graph.cpp.o
+
+src/Graph.i: src/Graph.cpp.i
+
+.PHONY : src/Graph.i
+
+# target to preprocess a source file
+src/Graph.cpp.i:
+	$(MAKE) -f CMakeFiles/GIS.dir/build.make CMakeFiles/GIS.dir/src/Graph.cpp.i
+.PHONY : src/Graph.cpp.i
+
+src/Graph.s: src/Graph.cpp.s
+
+.PHONY : src/Graph.s
+
+# target to generate assembly for a file
+src/Graph.cpp.s:
+	$(MAKE) -f CMakeFiles/GIS.dir/build.make CMakeFiles/GIS.dir/src/Graph.cpp.s
+.PHONY : src/Graph.cpp.s
+
+src/Parser.o: src/Parser.cpp.o
+
+.PHONY : src/Parser.o
+
+# target to build an object file
+src/Parser.cpp.o:
+	$(MAKE) -f CMakeFiles/GIS.dir/build.make CMakeFiles/GIS.dir/src/Parser.cpp.o
+.PHONY : src/Parser.cpp.o
+
+src/Parser.i: src/Parser.cpp.i
+
+.PHONY : src/Parser.i
+
+# target to preprocess a source file
+src/Parser.cpp.i:
+	$(MAKE) -f CMakeFiles/GIS.dir/build.make CMakeFiles/GIS.dir/src/Parser.cpp.i
+.PHONY : src/Parser.cpp.i
+
+src/Parser.s: src/Parser.cpp.s
+
+.PHONY : src/Parser.s
+
+# target to generate assembly for a file
+src/Parser.cpp.s:
+	$(MAKE) -f CMakeFiles/GIS.dir/build.make CMakeFiles/GIS.dir/src/Parser.cpp.s
+.PHONY : src/Parser.cpp.s
+
 # Help Target
 help:
 	@echo "The following are some of the valid targets for this Makefile:"
@@ -162,6 +243,15 @@ help:
 	@echo "... main.o"
 	@echo "... main.i"
 	@echo "... main.s"
+	@echo "... src/Edge.o"
+	@echo "... src/Edge.i"
+	@echo "... src/Edge.s"
+	@echo "... src/Graph.o"
+	@echo "... src/Graph.i"
+	@echo "... src/Graph.s"
+	@echo "... src/Parser.o"
+	@echo "... src/Parser.i"
+	@echo "... src/Parser.s"
 .PHONY : help
 
 

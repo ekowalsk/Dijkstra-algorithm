@@ -1,0 +1,24 @@
+#IncludeRegexLine: ^[ 	]*[#%][ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+.././include/Edge.h
+
+.././include/Graph.h
+map
+-
+list
+-
+Edge.h
+.././include/Edge.h
+
+/home/ewa/Dokumenty/GIS/projekt_Clion/src/Graph.cpp
+limits.h
+-
+Graph.h
+/home/ewa/Dokumenty/GIS/projekt_Clion/src/Graph.h
+

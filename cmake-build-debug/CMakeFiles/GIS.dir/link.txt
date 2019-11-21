@@ -1,1 +1,1 @@
-/usr/bin/c++  -g   CMakeFiles/GIS.dir/main.cpp.o  -o GIS 
+/usr/bin/c++  -g   CMakeFiles/GIS.dir/main.cpp.o CMakeFiles/GIS.dir/src/Edge.cpp.o CMakeFiles/GIS.dir/src/Graph.cpp.o CMakeFiles/GIS.dir/src/Parser.cpp.o  -o GIS 

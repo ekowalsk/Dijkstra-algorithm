@@ -70,17 +70,62 @@ CMakeFiles/GIS.dir/main.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/GIS.dir/main.cpp.s"
 	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/ewa/Dokumenty/GIS/projekt_Clion/main.cpp -o CMakeFiles/GIS.dir/main.cpp.s
 
+CMakeFiles/GIS.dir/src/Edge.cpp.o: CMakeFiles/GIS.dir/flags.make
+CMakeFiles/GIS.dir/src/Edge.cpp.o: ../src/Edge.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/ewa/Dokumenty/GIS/projekt_Clion/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building CXX object CMakeFiles/GIS.dir/src/Edge.cpp.o"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/GIS.dir/src/Edge.cpp.o -c /home/ewa/Dokumenty/GIS/projekt_Clion/src/Edge.cpp
+
+CMakeFiles/GIS.dir/src/Edge.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/GIS.dir/src/Edge.cpp.i"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/ewa/Dokumenty/GIS/projekt_Clion/src/Edge.cpp > CMakeFiles/GIS.dir/src/Edge.cpp.i
+
+CMakeFiles/GIS.dir/src/Edge.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/GIS.dir/src/Edge.cpp.s"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/ewa/Dokumenty/GIS/projekt_Clion/src/Edge.cpp -o CMakeFiles/GIS.dir/src/Edge.cpp.s
+
+CMakeFiles/GIS.dir/src/Graph.cpp.o: CMakeFiles/GIS.dir/flags.make
+CMakeFiles/GIS.dir/src/Graph.cpp.o: ../src/Graph.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/ewa/Dokumenty/GIS/projekt_Clion/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Building CXX object CMakeFiles/GIS.dir/src/Graph.cpp.o"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/GIS.dir/src/Graph.cpp.o -c /home/ewa/Dokumenty/GIS/projekt_Clion/src/Graph.cpp
+
+CMakeFiles/GIS.dir/src/Graph.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/GIS.dir/src/Graph.cpp.i"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/ewa/Dokumenty/GIS/projekt_Clion/src/Graph.cpp > CMakeFiles/GIS.dir/src/Graph.cpp.i
+
+CMakeFiles/GIS.dir/src/Graph.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/GIS.dir/src/Graph.cpp.s"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/ewa/Dokumenty/GIS/projekt_Clion/src/Graph.cpp -o CMakeFiles/GIS.dir/src/Graph.cpp.s
+
+CMakeFiles/GIS.dir/src/Parser.cpp.o: CMakeFiles/GIS.dir/flags.make
+CMakeFiles/GIS.dir/src/Parser.cpp.o: ../src/Parser.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/ewa/Dokumenty/GIS/projekt_Clion/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Building CXX object CMakeFiles/GIS.dir/src/Parser.cpp.o"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/GIS.dir/src/Parser.cpp.o -c /home/ewa/Dokumenty/GIS/projekt_Clion/src/Parser.cpp
+
+CMakeFiles/GIS.dir/src/Parser.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/GIS.dir/src/Parser.cpp.i"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/ewa/Dokumenty/GIS/projekt_Clion/src/Parser.cpp > CMakeFiles/GIS.dir/src/Parser.cpp.i
+
+CMakeFiles/GIS.dir/src/Parser.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/GIS.dir/src/Parser.cpp.s"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/ewa/Dokumenty/GIS/projekt_Clion/src/Parser.cpp -o CMakeFiles/GIS.dir/src/Parser.cpp.s
+
 # Object files for target GIS
 GIS_OBJECTS = \
-"CMakeFiles/GIS.dir/main.cpp.o"
+"CMakeFiles/GIS.dir/main.cpp.o" \
+"CMakeFiles/GIS.dir/src/Edge.cpp.o" \
+"CMakeFiles/GIS.dir/src/Graph.cpp.o" \
+"CMakeFiles/GIS.dir/src/Parser.cpp.o"
 
 # External object files for target GIS
 GIS_EXTERNAL_OBJECTS =
 
 GIS: CMakeFiles/GIS.dir/main.cpp.o
+GIS: CMakeFiles/GIS.dir/src/Edge.cpp.o
+GIS: CMakeFiles/GIS.dir/src/Graph.cpp.o
+GIS: CMakeFiles/GIS.dir/src/Parser.cpp.o
 GIS: CMakeFiles/GIS.dir/build.make
 GIS: CMakeFiles/GIS.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/ewa/Dokumenty/GIS/projekt_Clion/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Linking CXX executable GIS"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/ewa/Dokumenty/GIS/projekt_Clion/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_5) "Linking CXX executable GIS"
 	$(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/GIS.dir/link.txt --verbose=$(VERBOSE)
 
 # Rule to build all files generated by this target.
