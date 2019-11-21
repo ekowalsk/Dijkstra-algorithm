@@ -1,0 +1,1 @@
+/usr/bin/c++  -g   CMakeFiles/GIS.dir/main.cpp.o  -o GIS 

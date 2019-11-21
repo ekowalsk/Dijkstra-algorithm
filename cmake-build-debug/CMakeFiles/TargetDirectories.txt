@@ -1,0 +1,3 @@
+/home/ewa/Dokumenty/GIS/projekt_Clion/cmake-build-debug/CMakeFiles/rebuild_cache.dir
+/home/ewa/Dokumenty/GIS/projekt_Clion/cmake-build-debug/CMakeFiles/GIS.dir
+/home/ewa/Dokumenty/GIS/projekt_Clion/cmake-build-debug/CMakeFiles/edit_cache.dir
