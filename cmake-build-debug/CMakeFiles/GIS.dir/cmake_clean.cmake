@@ -3,6 +3,7 @@ file(REMOVE_RECURSE
   "CMakeFiles/GIS.dir/src/Edge.cpp.o"
   "CMakeFiles/GIS.dir/src/Graph.cpp.o"
   "CMakeFiles/GIS.dir/src/Parser.cpp.o"
+  "CMakeFiles/GIS.dir/src/Dijkstra.cpp.o"
   "GIS.pdb"
   "GIS"
 )

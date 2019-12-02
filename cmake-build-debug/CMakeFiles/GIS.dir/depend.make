@@ -3,10 +3,20 @@
 
 CMakeFiles/GIS.dir/main.cpp.o: ../main.cpp
 
+CMakeFiles/GIS.dir/src/Dijkstra.cpp.o: .././include/Dijkstra.h
+CMakeFiles/GIS.dir/src/Dijkstra.cpp.o: .././include/Edge.h
+CMakeFiles/GIS.dir/src/Dijkstra.cpp.o: .././include/Graph.h
+CMakeFiles/GIS.dir/src/Dijkstra.cpp.o: ../src/Dijkstra.cpp
+
 CMakeFiles/GIS.dir/src/Edge.cpp.o: .././include/Edge.h
 CMakeFiles/GIS.dir/src/Edge.cpp.o: ../src/Edge.cpp
 
 CMakeFiles/GIS.dir/src/Graph.cpp.o: .././include/Edge.h
 CMakeFiles/GIS.dir/src/Graph.cpp.o: .././include/Graph.h
+CMakeFiles/GIS.dir/src/Graph.cpp.o: .././include/Parser.h
 CMakeFiles/GIS.dir/src/Graph.cpp.o: ../src/Graph.cpp
+
+CMakeFiles/GIS.dir/src/Parser.cpp.o: .././include/Edge.h
+CMakeFiles/GIS.dir/src/Parser.cpp.o: .././include/Parser.h
+CMakeFiles/GIS.dir/src/Parser.cpp.o: ../src/Parser.cpp
 

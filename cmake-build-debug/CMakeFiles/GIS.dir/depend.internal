@@ -3,10 +3,20 @@
 
 CMakeFiles/GIS.dir/main.cpp.o
  /home/ewa/Dokumenty/GIS/projekt_Clion/main.cpp
+CMakeFiles/GIS.dir/src/Dijkstra.cpp.o
+ .././include/Dijkstra.h
+ .././include/Edge.h
+ .././include/Graph.h
+ /home/ewa/Dokumenty/GIS/projekt_Clion/src/Dijkstra.cpp
 CMakeFiles/GIS.dir/src/Edge.cpp.o
  .././include/Edge.h
  /home/ewa/Dokumenty/GIS/projekt_Clion/src/Edge.cpp
 CMakeFiles/GIS.dir/src/Graph.cpp.o
  .././include/Edge.h
  .././include/Graph.h
+ .././include/Parser.h
  /home/ewa/Dokumenty/GIS/projekt_Clion/src/Graph.cpp
+CMakeFiles/GIS.dir/src/Parser.cpp.o
+ .././include/Edge.h
+ .././include/Parser.h
+ /home/ewa/Dokumenty/GIS/projekt_Clion/src/Parser.cpp

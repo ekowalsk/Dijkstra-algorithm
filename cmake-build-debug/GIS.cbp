@@ -86,6 +86,9 @@
 				</MakeCommands>
 			</Target>
 		</Build>
+		<Unit filename="/home/ewa/Dokumenty/GIS/projekt_Clion/include/Dijkstra.h">
+			<Option target="GIS"/>
+		</Unit>
 		<Unit filename="/home/ewa/Dokumenty/GIS/projekt_Clion/include/Edge.h">
 			<Option target="GIS"/>
 		</Unit>
@@ -96,6 +99,9 @@
 			<Option target="GIS"/>
 		</Unit>
 		<Unit filename="/home/ewa/Dokumenty/GIS/projekt_Clion/main.cpp">
+			<Option target="GIS"/>
+		</Unit>
+		<Unit filename="/home/ewa/Dokumenty/GIS/projekt_Clion/src/Dijkstra.cpp">
 			<Option target="GIS"/>
 		</Unit>
 		<Unit filename="/home/ewa/Dokumenty/GIS/projekt_Clion/src/Edge.cpp">

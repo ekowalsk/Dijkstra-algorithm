@@ -6,6 +6,10 @@
 
 #IncludeRegexTransform: 
 
+.././include/Dijkstra.h
+Graph.h
+.././include/Graph.h
+
 .././include/Edge.h
 
 .././include/Graph.h
@@ -16,9 +20,11 @@ list
 Edge.h
 .././include/Edge.h
 
-/home/ewa/Dokumenty/GIS/projekt_Clion/src/Graph.cpp
+/home/ewa/Dokumenty/GIS/projekt_Clion/src/Dijkstra.cpp
 limits.h
 -
-Graph.h
-/home/ewa/Dokumenty/GIS/projekt_Clion/src/Graph.h
+iostream
+-
+Dijkstra.h
+/home/ewa/Dokumenty/GIS/projekt_Clion/src/Dijkstra.h
 

@@ -150,6 +150,33 @@ main.cpp.s:
 	$(MAKE) -f CMakeFiles/GIS.dir/build.make CMakeFiles/GIS.dir/main.cpp.s
 .PHONY : main.cpp.s
 
+src/Dijkstra.o: src/Dijkstra.cpp.o
+
+.PHONY : src/Dijkstra.o
+
+# target to build an object file
+src/Dijkstra.cpp.o:
+	$(MAKE) -f CMakeFiles/GIS.dir/build.make CMakeFiles/GIS.dir/src/Dijkstra.cpp.o
+.PHONY : src/Dijkstra.cpp.o
+
+src/Dijkstra.i: src/Dijkstra.cpp.i
+
+.PHONY : src/Dijkstra.i
+
+# target to preprocess a source file
+src/Dijkstra.cpp.i:
+	$(MAKE) -f CMakeFiles/GIS.dir/build.make CMakeFiles/GIS.dir/src/Dijkstra.cpp.i
+.PHONY : src/Dijkstra.cpp.i
+
+src/Dijkstra.s: src/Dijkstra.cpp.s
+
+.PHONY : src/Dijkstra.s
+
+# target to generate assembly for a file
+src/Dijkstra.cpp.s:
+	$(MAKE) -f CMakeFiles/GIS.dir/build.make CMakeFiles/GIS.dir/src/Dijkstra.cpp.s
+.PHONY : src/Dijkstra.cpp.s
+
 src/Edge.o: src/Edge.cpp.o
 
 .PHONY : src/Edge.o
@@ -243,6 +270,9 @@ help:
 	@echo "... main.o"
 	@echo "... main.i"
 	@echo "... main.s"
+	@echo "... src/Dijkstra.o"
+	@echo "... src/Dijkstra.i"
+	@echo "... src/Dijkstra.s"
 	@echo "... src/Edge.o"
 	@echo "... src/Edge.i"
 	@echo "... src/Edge.s"
