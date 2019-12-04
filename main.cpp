@@ -13,7 +13,7 @@ int main(int argc, char* argv[]) {
     graph.print();
 
     Dijkstra dijkstra_algorithm = Dijkstra(graph);
-    dijkstra_algorithm.shortest_path(2,5);
+    dijkstra_algorithm.shortest_path(2,7);
 
     return 0;
 }
