@@ -14,7 +14,12 @@ void Dijkstra::initState(){
         predecessors->insert(std::make_pair(it->first, NULL));
 }
 
-std::pair<int, std::list<int>> Dijkstra::shortest_path(int source, int destination){
+void Dijkstra::shortest_path(int source, int destination){
+    printPath(calculate_shortest_path(source, destination));
+    std::cout << "distance: " << priorityQueue->at(destination) << std::endl;
+}
+
+std::list<int> Dijkstra::calculate_shortest_path(int source, int destination){
     if (!isValidVertex(source) || !isValidVertex(destination)){
         std::cerr << "Invalid source or destination vertex. " << std::endl;
         exit(-1);
@@ -27,7 +32,7 @@ std::pair<int, std::list<int>> Dijkstra::shortest_path(int source, int destinati
         eraseFromPriorityQueue(currentVertex);
         currentVertex = peekPriorityQueue();
     }
-    printPath(reconstructPath(source, destination));
+    return reconstructPath(source, destination);
 }
 
 bool Dijkstra::isValidVertex(int vertex){

@@ -18,10 +18,11 @@ private:
     void updatePredecessors(int vertex, int predecessor);
     int getDistance(int vertex);
     std::list<int> reconstructPath(int source, int destination);
+    std::list<int> calculate_shortest_path(int source, int destination);
     void printPath(const std::list<int>& path);
 public:
     explicit Dijkstra(Graph pGraph);
     ~Dijkstra();
-    std::pair<int, std::list<int>> shortest_path(int source, int destination);
+    void shortest_path(int source, int destination);
 };
 #endif //GIS_DIJKSTRA_H
