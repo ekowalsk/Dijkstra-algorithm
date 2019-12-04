@@ -10,10 +10,8 @@ Dijkstra::Dijkstra(Graph pGraph): graph(pGraph){
 void Dijkstra::initState(){
     predecessors = new std::map<int, int>();
     priorityQueue = new std::map<int, int>();
-    for (auto it = graph.edges->begin(); it != graph.edges->end(); it = graph.edges->upper_bound(it->first)){
-        priorityQueue->insert(std::make_pair(it->first, INT_MAX));
+    for (auto it = graph.edges->begin(); it != graph.edges->end(); it = graph.edges->upper_bound(it->first))
         predecessors->insert(std::make_pair(it->first, NULL));
-    }
 }
 
 std::pair<int, std::list<int>> Dijkstra::shortest_path(int source, int destination){
@@ -59,20 +57,22 @@ int Dijkstra::peekPriorityQueue(){
     return minVertex;
 }
 
-void Dijkstra::updateSuccessorsDistances(int vertex){
-    auto edges = graph.getOutgoingEdges(vertex);
-    for (auto edge = edges.first; edge != edges.second; edge++){
+void Dijkstra::updateSuccessorsDistances(int predecessor){
+    auto successors = graph.getOutgoingEdges(predecessor);
+    for (auto successor = successors.first; successor != successors.second; successor++){
         /* graph.getOutgoingEdges(currentVertex) can return edges, that have already been deleted from priority queue */
         try{
-            if (getDistance(edge->first) > getDistance(vertex) + edge->second.getWeight())
-                updateDistance(edge->first, getDistance(vertex) + edge->second.getWeight());
+            if (getDistance(successor->second.getDestination()) > getDistance(predecessor) + successor->second.getWeight()) {
+                updateDistance(successor->second.getDestination(), getDistance(predecessor) + successor->second.getWeight());
+                updatePredecessors(successor->second.getDestination(), predecessor);
+            }
         } catch (const std::out_of_range& e){
             continue;
         }
     }
 }
 
-int Dijkstra::getDistance(int vertex) {
+int Dijkstra::getDistance(int vertex){
     return priorityQueue->at(vertex);
 }
 void Dijkstra::eraseFromPriorityQueue(int vertex){
@@ -96,6 +96,10 @@ std::string Dijkstra::printPath(const std::list<int>& path){
     for (int it : path)
         pathString += std::to_string(it) + " -> ";
     return pathString;
+}
+
+void Dijkstra::updatePredecessors(int vertex, int predecessor){
+    predecessors->at(vertex) = predecessor;
 }
 
 Dijkstra::~Dijkstra(){

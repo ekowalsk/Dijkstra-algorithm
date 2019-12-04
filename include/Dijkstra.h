@@ -5,8 +5,8 @@
 class Dijkstra {
 private:
     Graph graph;
-    std::map<int, int> * priorityQueue;
-    std::map<int, int> * predecessors;
+    std::map<int, int> * priorityQueue{};
+    std::map<int, int> * predecessors{};
 
     void initState();
     void clearState();
@@ -15,11 +15,12 @@ private:
     int peekPriorityQueue();
     void eraseFromPriorityQueue(int vertex);
     void updateSuccessorsDistances(int vertex);
+    void updatePredecessors(int vertex, int predecessor);
     int getDistance(int vertex);
     std::list<int> reconstructPath(int source, int destination);
     std::string printPath(const std::list<int>& path);
 public:
-    Dijkstra(Graph pGraph);
+    explicit Dijkstra(Graph pGraph);
     ~Dijkstra();
     std::pair<int, std::list<int>> shortest_path(int source, int destination);
 };
