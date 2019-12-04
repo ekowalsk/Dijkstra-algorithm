@@ -20,6 +20,20 @@ list
 Edge.h
 .././include/Edge.h
 
+.././include/Parser.h
+map
+-
+Edge.h
+.././include/Edge.h
+
+/home/ewa/Dokumenty/GIS/projekt_Clion/main.cpp
+iostream
+-
+Parser.h
+/home/ewa/Dokumenty/GIS/projekt_Clion/Parser.h
+Dijkstra.h
+/home/ewa/Dokumenty/GIS/projekt_Clion/Dijkstra.h
+
 /home/ewa/Dokumenty/GIS/projekt_Clion/src/Dijkstra.cpp
 limits.h
 -
