@@ -91,11 +91,11 @@ std::list<int> Dijkstra::reconstructPath(int source, int destination){
     return path;
 }
 
-std::string Dijkstra::printPath(const std::list<int>& path){
+void Dijkstra::printPath(const std::list<int>& path){
     std::string pathString;
     for (int it : path)
         pathString += std::to_string(it) + " -> ";
-    return pathString;
+    std::cout << "Dijkstra shortest path: " << pathString << std::endl;
 }
 
 void Dijkstra::updatePredecessors(int vertex, int predecessor){

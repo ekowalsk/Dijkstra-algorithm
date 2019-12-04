@@ -18,7 +18,7 @@ private:
     void updatePredecessors(int vertex, int predecessor);
     int getDistance(int vertex);
     std::list<int> reconstructPath(int source, int destination);
-    std::string printPath(const std::list<int>& path);
+    void printPath(const std::list<int>& path);
 public:
     explicit Dijkstra(Graph pGraph);
     ~Dijkstra();
