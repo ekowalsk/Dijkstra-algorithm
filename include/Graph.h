@@ -9,8 +9,10 @@
 class Graph {
 public:
     typedef std::multimap<int, Edge>::iterator edgeIterator;
-    Graph();
+    Graph(std::multimap<int, Edge> * edges);
+    Graph(const Graph & graph);
     ~Graph();
+    void print();
     friend class Dijkstra;
 private:
     std::multimap<int, Edge> * edges; // pairs <startVertex, Edge>
