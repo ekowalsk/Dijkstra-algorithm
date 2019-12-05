@@ -12,7 +12,7 @@ public:
     Graph(std::multimap<int, Edge> * edges);
     Graph(const Graph & graph);
     ~Graph();
-    void print();
+    void print() const;
     friend class Dijkstra;
 private:
     std::multimap<int, Edge> * edges; // pairs <startVertex, Edge>

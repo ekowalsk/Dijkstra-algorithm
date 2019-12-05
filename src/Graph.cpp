@@ -4,7 +4,6 @@
 #include "Graph.h"
 #include "Parser.h"
 
-//TODO utworzyć klasę Dijkstra algorithm, dodać do niej updateDistance
 Graph::Graph(std::multimap<int, Edge> * e){
     this->edges = new std::multimap<int, Edge>();
     for (auto & edge : *e)
@@ -25,7 +24,7 @@ Graph::~Graph(){
     delete edges;
 }
 
-void Graph::print(){
+void Graph::print() const {
     for (auto & edge : *edges)
         edge.second.printEdge();
 }
