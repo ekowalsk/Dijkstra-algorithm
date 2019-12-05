@@ -3,8 +3,6 @@
 
 #include "Dijkstra.h"
 
-//TODO dodać lepsze nazwy
-
 Dijkstra::Dijkstra(Graph pGraph): graph(pGraph){
     initState();
 }
