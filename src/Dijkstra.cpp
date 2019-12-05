@@ -3,6 +3,8 @@
 
 #include "Dijkstra.h"
 
+//TODO dodać lepsze nazwy
+
 Dijkstra::Dijkstra(Graph pGraph): graph(pGraph){
     initState();
 }
@@ -26,7 +28,7 @@ std::list<int> Dijkstra::calculate_shortest_path(int source, int destination){
     }
     clearState();
     updateDistance(source, 0);
-    int currentVertex = peekPriorityQueue();
+    int currentVertex = source;
     while (currentVertex != destination) {
         updateSuccessorsDistances(currentVertex);
         eraseFromPriorityQueue(currentVertex);
@@ -63,8 +65,8 @@ int Dijkstra::peekPriorityQueue(){
 }
 
 void Dijkstra::updateSuccessorsDistances(int predecessor){
-    auto successors = graph.getOutgoingEdges(predecessor);
-    for (auto successor = successors.first; successor != successors.second; successor++){
+    auto successorsEdges = graph.getOutgoingEdges(predecessor);
+    for (auto successor = successorsEdges.first; successor != successorsEdges.second; successor++){
         /* graph.getOutgoingEdges(currentVertex) can return edges, that have already been deleted from priority queue */
         try{
             if (getDistance(successor->second.getDestination()) > getDistance(predecessor) + successor->second.getWeight()) {
@@ -86,14 +88,20 @@ void Dijkstra::eraseFromPriorityQueue(int vertex){
 
 std::list<int> Dijkstra::reconstructPath(int source, int destination){
     std::list<int> path = std::list<int>();
-    path.push_back(destination);
-    int currentVertex = predecessors->at(destination);
+    int currentVertex = destination;
     while(currentVertex != source){
+        if (currentVertex == 0)
+            handleNoConnection(source, destination);
         path.push_front(currentVertex);
         currentVertex = predecessors->at(currentVertex);
     }
     path.push_front(source);
     return path;
+}
+
+void Dijkstra::handleNoConnection(int source, int destination){
+    std::cerr << "connection between " << source << " and " << destination << " does not exist " << std::endl;
+    exit(1);
 }
 
 void Dijkstra::printPath(const std::list<int>& path){

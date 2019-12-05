@@ -19,7 +19,8 @@ private:
     int getDistance(int vertex);
     std::list<int> reconstructPath(int source, int destination);
     std::list<int> calculate_shortest_path(int source, int destination);
-    void printPath(const std::list<int>& path);
+    static void printPath(const std::list<int>& path);
+    static void handleNoConnection(int source, int destination);
 public:
     explicit Dijkstra(Graph pGraph);
     ~Dijkstra();
