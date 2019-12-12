@@ -9,30 +9,42 @@ Dijkstra::Dijkstra(Graph pGraph): graph(pGraph){
 
 void Dijkstra::initState(){
     predecessors = new std::map<int, int>();
-    priorityQueue = new std::map<int, int>();
+    distances = new std::map<int, int>();
     for (auto it = graph.edges->begin(); it != graph.edges->end(); it = graph.edges->upper_bound(it->first))
         predecessors->insert(std::make_pair(it->first, NULL));
 }
 
 void Dijkstra::shortest_path(int source, int destination){
-    printPath(calculate_shortest_path(source, destination));
-    std::cout << "distance: " << priorityQueue->at(destination) << std::endl;
+    calculate_shortest_path(source, destination);
+    if (destination != INT_MIN) {
+        printPath(reconstructPath(source, destination));
+        std::cout << "distance: " << distances->at(destination) << std::endl;
+    }
 }
 
-std::list<int> Dijkstra::calculate_shortest_path(int source, int destination){
-    if (!isValidVertex(source) || !isValidVertex(destination)){
+void Dijkstra::calculate_shortest_path(int source, int destination){
+    if (!isValidVertex(source) || (!isValidVertex(destination) && destination != INT_MIN)){
         std::cerr << "Invalid source or destination vertex. " << std::endl;
         exit(-1);
     }
     clearState();
     updateDistance(source, 0);
+    std::map<int, int> * priorityQueue = createPriorityQueue();
     int currentVertex = source;
-    while (currentVertex != destination) {
+    while (!priorityQueue->empty()) {
+        if (source == destination)
+            break;
         updateSuccessorsDistances(currentVertex);
-        eraseFromPriorityQueue(currentVertex);
-        currentVertex = peekPriorityQueue();
+        currentVertex = popPriorityQueue(priorityQueue);
     }
-    return reconstructPath(source, destination);
+}
+
+std::map<int, int> * Dijkstra::createPriorityQueue() {
+    auto * priorityQueue = new std::map<int, int>();
+    for (auto & predecessor : *predecessors){
+        priorityQueue->insert(std::make_pair(predecessor.first, INT_MAX));
+    }
+    return priorityQueue;
 }
 
 bool Dijkstra::isValidVertex(int vertex){
@@ -42,23 +54,24 @@ bool Dijkstra::isValidVertex(int vertex){
 void Dijkstra::clearState(){
     for (auto & predecessor : *predecessors){
         predecessor.second = NULL;
-        priorityQueue->insert(std::make_pair(predecessor.first, INT_MAX));
+        distances->insert(std::make_pair(predecessor.first, INT_MAX));
     }
 }
 
 void Dijkstra::updateDistance(int vertex, int distance){
-    priorityQueue->at(vertex) = distance;
+    distances->at(vertex) = distance;
 }
 
-int Dijkstra::peekPriorityQueue(){
-    int minDistance = priorityQueue->begin()->second;
+int Dijkstra::popPriorityQueue(std::map<int, int> * priorityQueue){
     int minVertex = priorityQueue->begin()->first;
+    int minDistance = distances->at(minVertex);
     for (auto & element : *priorityQueue){
-        if (minDistance > element.second){
-            minDistance = element.second;
+        if (minDistance > distances->at(element.first)){
+            minDistance = distances->at(element.first);
             minVertex = element.first;
         }
     }
+    priorityQueue->erase(minVertex);
     return minVertex;
 }
 
@@ -78,11 +91,9 @@ void Dijkstra::updateSuccessorsDistances(int predecessor){
 }
 
 int Dijkstra::getDistance(int vertex){
-    return priorityQueue->at(vertex);
+    return distances->at(vertex);
 }
-void Dijkstra::eraseFromPriorityQueue(int vertex){
-    priorityQueue->erase(vertex);
-}
+
 
 std::list<int> Dijkstra::reconstructPath(int source, int destination){
     std::list<int> path = std::list<int>();
@@ -113,8 +124,14 @@ void Dijkstra::updatePredecessors(int vertex, int predecessor){
     predecessors->at(vertex) = predecessor;
 }
 
+void Dijkstra::getPath(int source, int destination){
+    printPath(reconstructPath(source, destination));
+    std::cout << "distance: " << distances->at(destination) << std::endl;
+}
+
+
 Dijkstra::~Dijkstra(){
-    delete priorityQueue;
+    delete distances;
     delete predecessors;
 }
 
