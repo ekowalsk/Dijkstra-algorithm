@@ -2,6 +2,7 @@
 #include "Parser.h"
 #include "Dijkstra.h"
 
+
 int main(int argc, char* argv[]) {
     std::multimap<int, Edge> * graphEdges;
 
@@ -10,10 +11,14 @@ int main(int argc, char* argv[]) {
     else
         graphEdges = Parser::parseStdin();
     Graph graph = Graph(graphEdges);
-    graph.print();
 
     Dijkstra dijkstra_algorithm = Dijkstra(graph);
-    dijkstra_algorithm.shortest_path(2,7);
+    dijkstra_algorithm.shortest_path(2);
+    dijkstra_algorithm.getPath(2, 6);
+    dijkstra_algorithm.getPath(2, 5);
+    dijkstra_algorithm.getPath(2, 1);
+
+
 
     return 0;
 }
