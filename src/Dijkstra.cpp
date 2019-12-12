@@ -11,7 +11,7 @@ void Dijkstra::initState(){
     predecessors = new std::map<int, int>();
     distances = new std::map<int, int>();
     for (auto it = graph.edges->begin(); it != graph.edges->end(); it = graph.edges->upper_bound(it->first))
-        predecessors->insert(std::make_pair(it->first, NULL));
+        predecessors->insert(std::make_pair(it->first, INT_MIN));
 }
 
 void Dijkstra::shortest_path(int source, int destination){
@@ -53,7 +53,7 @@ bool Dijkstra::isValidVertex(int vertex){
 
 void Dijkstra::clearState(){
     for (auto & predecessor : *predecessors){
-        predecessor.second = NULL;
+        predecessor.second = INT_MIN;
         distances->insert(std::make_pair(predecessor.first, INT_MAX));
     }
 }
@@ -99,13 +99,17 @@ std::list<int> Dijkstra::reconstructPath(int source, int destination){
     std::list<int> path = std::list<int>();
     int currentVertex = destination;
     while(currentVertex != source){
-        if (currentVertex == 0)
+        if (currentVertex == INT_MIN)
             handleNoConnection(source, destination);
         path.push_front(currentVertex);
         currentVertex = predecessors->at(currentVertex);
     }
     path.push_front(source);
     return path;
+}
+
+int getPredecessor(int vertex){
+
 }
 
 void Dijkstra::handleNoConnection(int source, int destination){
