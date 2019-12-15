@@ -31,7 +31,7 @@ void Dijkstra::calculate_shortest_path(int source, int destination){
     }
     clearState();
     updateDistance(source, 0);
-    std::unordered_map<int, int> * priorityQueue = createPriorityQueue();
+    auto priorityQueue = createPriorityQueue();
     int currentVertex = source;
     while (!priorityQueue->empty()) {
         if (source == destination)
@@ -41,11 +41,10 @@ void Dijkstra::calculate_shortest_path(int source, int destination){
     }
 }
 
-std::unordered_map<int, int> * Dijkstra::createPriorityQueue() {
-    auto * priorityQueue = new std::unordered_map<int, int>();
-    for (auto & predecessor : *predecessors){
-        priorityQueue->insert(std::make_pair(predecessor.first, INT_MAX));
-    }
+std::list<int> * Dijkstra::createPriorityQueue() {
+    auto priorityQueue = new std::list<int>();
+    for (auto & predecessor : *predecessors)
+        priorityQueue->push_back(predecessor.first);
     return priorityQueue;
 }
 
@@ -64,16 +63,18 @@ void Dijkstra::updateDistance(int vertex, int distance){
     distances->find(vertex)->second = distance;
 }
 
-int Dijkstra::popPriorityQueue(std::unordered_map<int, int> * priorityQueue){
-    int minVertex = priorityQueue->begin()->first;
+int Dijkstra::popPriorityQueue(std::list<int> * priorityQueue){
+    int minVertex = *(priorityQueue->begin());
+    auto minIterator = priorityQueue->begin();
     int minDistance = distances->find(minVertex)->second;
-    for (auto & element : *priorityQueue){
-        if (minDistance > distances->find(element.first)->second){
-            minDistance = distances->find(element.first)->second;
-            minVertex = element.first;
+    for (auto element  = priorityQueue->begin(); element != priorityQueue->end(); element++){
+        if (minDistance > distances->find(*element)->second){
+            minDistance = distances->find(*element)->second;
+            minVertex = *element;
+            minIterator = element;
         }
     }
-    priorityQueue->erase(minVertex);
+    priorityQueue->erase(minIterator);
     return minVertex;
 }
 

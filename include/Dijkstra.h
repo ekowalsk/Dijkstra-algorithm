@@ -14,13 +14,13 @@ private:
     void clearState();
     void updateDistance(int vertex, int distance);
     bool isValidVertex(int vertex);
-    int popPriorityQueue(std::unordered_map<int, int> * priorityQueue);
+    int popPriorityQueue(std::list<int> * priorityQueue);
     void updateSuccessorsDistances(int vertex);
     void updatePredecessors(int vertex, int predecessor);
     int getDistance(int vertex);
     std::list<int> reconstructPath(int source, int destination);
     void calculate_shortest_path(int source, int destination);
-    std::unordered_map<int, int> * createPriorityQueue();
+    std::list<int> * createPriorityQueue();
     static void printPath(const std::list<int>& path);
     static void handleNoConnection(int source, int destination);
 public:
