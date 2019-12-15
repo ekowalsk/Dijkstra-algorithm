@@ -8,14 +8,14 @@
 
 class Graph {
 public:
-    typedef std::unordered_multimap<int, Edge>::iterator edgeIterator;
-    Graph(std::unordered_multimap<int, Edge> * edges);
+    typedef std::unordered_map<int, std::list<Edge>>::iterator edgeIterator;
+    Graph(std::unordered_map<int, std::list<Edge>> * edges);
     Graph(const Graph & graph);
     ~Graph();
     void print() const;
     friend class Dijkstra;
 private:
-    std::unordered_multimap<int, Edge> * edges; // pairs <startVertex, Edge>
-    std::pair<edgeIterator, edgeIterator> getOutgoingEdges (int vertex);
+    std::unordered_map<int, std::list<Edge>> * edges; // pairs <startVertex, Edge>
+    edgeIterator getOutgoingEdges (int vertex);
 };
 #endif //GIS_GRAPH_H

@@ -1,10 +1,11 @@
 #include <iostream>
+
 #include "Parser.h"
 #include "Dijkstra.h"
 
 
 int main(int argc, char* argv[]) {
-    std::unordered_multimap<int, Edge> * graphEdges;
+    std::unordered_map<int, std::list<Edge>> * graphEdges;
 
     if (argc == 2)
         graphEdges = Parser::parseFile(argv[1]);
@@ -18,8 +19,6 @@ int main(int argc, char* argv[]) {
     dijkstra_algorithm.getPath(2, 5);
     dijkstra_algorithm.getPath(2, 1);
     dijkstra_algorithm.getPath(1, 6);
-
-
 
     return 0;
 }

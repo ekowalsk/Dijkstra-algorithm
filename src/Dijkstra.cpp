@@ -8,8 +8,8 @@ Dijkstra::Dijkstra(Graph pGraph): graph(pGraph){
 }
 
 void Dijkstra::initState(){
-    predecessors = new std::unordered_multimap<int, int>();
-    distances = new std::unordered_multimap<int, int>();
+    predecessors = new std::unordered_map<int, int>();
+    distances = new std::unordered_map<int, int>();
     for (auto it = graph.edges->begin(); it != graph.edges->end(); it++){
         if (predecessors->find(it->first) == predecessors->end())
             predecessors->insert(std::make_pair(it->first, INT_MIN));
@@ -20,7 +20,7 @@ void Dijkstra::shortest_path(int source, int destination){
     calculate_shortest_path(source, destination);
     if (destination != INT_MIN) {
         printPath(reconstructPath(source, destination));
-        std::cout << "distance: " << distances->find(destination)->second << std::endl;
+        std::cout << "distance: " << distances->at(destination) << std::endl;
     }
 }
 
@@ -31,7 +31,7 @@ void Dijkstra::calculate_shortest_path(int source, int destination){
     }
     clearState();
     updateDistance(source, 0);
-    std::unordered_multimap<int, int> * priorityQueue = createPriorityQueue();
+    std::unordered_map<int, int> * priorityQueue = createPriorityQueue();
     int currentVertex = source;
     while (!priorityQueue->empty()) {
         if (source == destination)
@@ -41,8 +41,8 @@ void Dijkstra::calculate_shortest_path(int source, int destination){
     }
 }
 
-std::unordered_multimap<int, int> * Dijkstra::createPriorityQueue() {
-    auto * priorityQueue = new std::unordered_multimap<int, int>();
+std::unordered_map<int, int> * Dijkstra::createPriorityQueue() {
+    auto * priorityQueue = new std::unordered_map<int, int>();
     for (auto & predecessor : *predecessors){
         priorityQueue->insert(std::make_pair(predecessor.first, INT_MAX));
     }
@@ -64,7 +64,7 @@ void Dijkstra::updateDistance(int vertex, int distance){
     distances->find(vertex)->second = distance;
 }
 
-int Dijkstra::popPriorityQueue(std::unordered_multimap<int, int> * priorityQueue){
+int Dijkstra::popPriorityQueue(std::unordered_map<int, int> * priorityQueue){
     int minVertex = priorityQueue->begin()->first;
     int minDistance = distances->find(minVertex)->second;
     for (auto & element : *priorityQueue){
@@ -79,12 +79,12 @@ int Dijkstra::popPriorityQueue(std::unordered_multimap<int, int> * priorityQueue
 
 void Dijkstra::updateSuccessorsDistances(int predecessor){
     auto successorsEdges = graph.getOutgoingEdges(predecessor);
-    for (auto successor = successorsEdges.first; successor != successorsEdges.second; successor++){
+    for (auto & successor : successorsEdges->second){
         /* graph.getOutgoingEdges(currentVertex) can return edges, that have already been deleted from priority queue */
         try{
-            if (getDistance(successor->second.getDestination()) > getDistance(predecessor) + successor->second.getWeight()) {
-                updateDistance(successor->second.getDestination(), getDistance(predecessor) + successor->second.getWeight());
-                updatePredecessors(successor->second.getDestination(), predecessor);
+            if (getDistance(successor.getDestination()) > getDistance(predecessor) + successor.getWeight()) {
+                updateDistance(successor.getDestination(), getDistance(predecessor) + successor.getWeight());
+                updatePredecessors(successor.getDestination(), predecessor);
             }
         } catch (const std::out_of_range& e){
             continue;

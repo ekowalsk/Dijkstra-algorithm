@@ -4,20 +4,20 @@
 #include "Graph.h"
 #include "Parser.h"
 
-Graph::Graph(std::unordered_multimap<int, Edge> * e){
-    this->edges = new std::unordered_multimap<int, Edge>();
+Graph::Graph(std::unordered_map<int, std::list<Edge>> * e){
+    this->edges = new std::unordered_map<int, std::list<Edge>>();
     for (auto & edge : *e)
-        this->edges->insert(std::make_pair(edge.first, edge.second));
+        this->edges->insert(std::make_pair(edge.first, std::list<Edge>(edge.second)));
 }
 
 Graph::Graph(const Graph & graph){
-    this->edges = new std::unordered_multimap<int, Edge>();
+    this->edges = new std::unordered_map<int, std::list<Edge>>();
     for (auto & edge : *graph.edges)
-        this->edges->insert(std::make_pair(edge.first, edge.second));
+        this->edges->insert(std::make_pair(edge.first, std::list<Edge>(edge.second)));
 }
 
-std::pair<Graph::edgeIterator, Graph::edgeIterator> Graph::getOutgoingEdges (int vertex) {
-    return edges->equal_range(vertex);
+Graph::edgeIterator Graph::getOutgoingEdges (int vertex) {
+    return edges->find(vertex);
 }
 
 Graph::~Graph(){
@@ -25,8 +25,10 @@ Graph::~Graph(){
 }
 
 void Graph::print() const {
-    for (auto & edge : *edges)
-        edge.second.printEdge();
+    for (auto & edge : *edges){
+        for (auto & e : edge.second)
+            e.printEdge();
+    }
 }
 
 
