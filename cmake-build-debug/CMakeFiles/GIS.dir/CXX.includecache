@@ -38,23 +38,11 @@ Parser.h
 Dijkstra.h
 /home/ewa/Dokumenty/GIS/projekt_Clion/Dijkstra.h
 
-/home/ewa/Dokumenty/GIS/projekt_Clion/src/Graph.cpp
+/home/ewa/Dokumenty/GIS/projekt_Clion/src/Dijkstra.cpp
 limits.h
 -
 iostream
 -
-Graph.h
-/home/ewa/Dokumenty/GIS/projekt_Clion/src/Graph.h
-Parser.h
-/home/ewa/Dokumenty/GIS/projekt_Clion/src/Parser.h
-
-/home/ewa/Dokumenty/GIS/projekt_Clion/src/Parser.cpp
-utility
--
-iostream
--
-fstream
--
-Parser.h
-/home/ewa/Dokumenty/GIS/projekt_Clion/src/Parser.h
+Dijkstra.h
+/home/ewa/Dokumenty/GIS/projekt_Clion/src/Dijkstra.h
 
