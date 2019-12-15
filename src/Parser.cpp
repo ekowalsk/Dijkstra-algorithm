@@ -5,9 +5,9 @@
 
 #include "Parser.h"
 
-std::multimap<int, Edge> * Parser::parseStdin(){
+std::unordered_multimap<int, Edge> * Parser::parseStdin(){
     int source = -1, destination = -1, weight = -1;
-    auto * parsedEdges = new std::multimap<int, Edge>{};
+    auto * parsedEdges = new std::unordered_multimap<int, Edge>{};
     while (std::cin >> source){
         if (std::cin >> destination >> weight)
             parsedEdges->insert(std::make_pair(source, Edge(source, destination, weight)));
@@ -19,10 +19,10 @@ std::multimap<int, Edge> * Parser::parseStdin(){
     return parsedEdges;
 }
 
-std::multimap<int, Edge> * Parser::parseFile(const std::string& fileName){
+std::unordered_multimap<int, Edge> * Parser::parseFile(const std::string& fileName){
     int source = -1, destination = -1, weight = -1;
     std::ifstream inFile = openFile(fileName);
-    auto * parsedEdges = new std::multimap<int, Edge>{};
+    auto * parsedEdges = new std::unordered_multimap<int, Edge>{};
 
     while (inFile >> source) {
         if (inFile >> destination >> weight)

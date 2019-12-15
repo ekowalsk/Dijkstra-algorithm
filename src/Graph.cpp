@@ -4,14 +4,14 @@
 #include "Graph.h"
 #include "Parser.h"
 
-Graph::Graph(std::multimap<int, Edge> * e){
-    this->edges = new std::multimap<int, Edge>();
+Graph::Graph(std::unordered_multimap<int, Edge> * e){
+    this->edges = new std::unordered_multimap<int, Edge>();
     for (auto & edge : *e)
         this->edges->insert(std::make_pair(edge.first, edge.second));
 }
 
 Graph::Graph(const Graph & graph){
-    this->edges = new std::multimap<int, Edge>();
+    this->edges = new std::unordered_multimap<int, Edge>();
     for (auto & edge : *graph.edges)
         this->edges->insert(std::make_pair(edge.first, edge.second));
 }

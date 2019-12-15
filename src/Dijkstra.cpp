@@ -8,17 +8,19 @@ Dijkstra::Dijkstra(Graph pGraph): graph(pGraph){
 }
 
 void Dijkstra::initState(){
-    predecessors = new std::map<int, int>();
-    distances = new std::map<int, int>();
-    for (auto it = graph.edges->begin(); it != graph.edges->end(); it = graph.edges->upper_bound(it->first))
-        predecessors->insert(std::make_pair(it->first, INT_MIN));
+    predecessors = new std::unordered_multimap<int, int>();
+    distances = new std::unordered_multimap<int, int>();
+    for (auto it = graph.edges->begin(); it != graph.edges->end(); it++){
+        if (predecessors->find(it->first) == predecessors->end())
+            predecessors->insert(std::make_pair(it->first, INT_MIN));
+    }
 }
 
 void Dijkstra::shortest_path(int source, int destination){
     calculate_shortest_path(source, destination);
     if (destination != INT_MIN) {
         printPath(reconstructPath(source, destination));
-        std::cout << "distance: " << distances->at(destination) << std::endl;
+        std::cout << "distance: " << distances->find(destination)->second << std::endl;
     }
 }
 
@@ -29,7 +31,7 @@ void Dijkstra::calculate_shortest_path(int source, int destination){
     }
     clearState();
     updateDistance(source, 0);
-    std::map<int, int> * priorityQueue = createPriorityQueue();
+    std::unordered_multimap<int, int> * priorityQueue = createPriorityQueue();
     int currentVertex = source;
     while (!priorityQueue->empty()) {
         if (source == destination)
@@ -39,8 +41,8 @@ void Dijkstra::calculate_shortest_path(int source, int destination){
     }
 }
 
-std::map<int, int> * Dijkstra::createPriorityQueue() {
-    auto * priorityQueue = new std::map<int, int>();
+std::unordered_multimap<int, int> * Dijkstra::createPriorityQueue() {
+    auto * priorityQueue = new std::unordered_multimap<int, int>();
     for (auto & predecessor : *predecessors){
         priorityQueue->insert(std::make_pair(predecessor.first, INT_MAX));
     }
@@ -59,15 +61,15 @@ void Dijkstra::clearState(){
 }
 
 void Dijkstra::updateDistance(int vertex, int distance){
-    distances->at(vertex) = distance;
+    distances->find(vertex)->second = distance;
 }
 
-int Dijkstra::popPriorityQueue(std::map<int, int> * priorityQueue){
+int Dijkstra::popPriorityQueue(std::unordered_multimap<int, int> * priorityQueue){
     int minVertex = priorityQueue->begin()->first;
-    int minDistance = distances->at(minVertex);
+    int minDistance = distances->find(minVertex)->second;
     for (auto & element : *priorityQueue){
-        if (minDistance > distances->at(element.first)){
-            minDistance = distances->at(element.first);
+        if (minDistance > distances->find(element.first)->second){
+            minDistance = distances->find(element.first)->second;
             minVertex = element.first;
         }
     }
@@ -91,9 +93,8 @@ void Dijkstra::updateSuccessorsDistances(int predecessor){
 }
 
 int Dijkstra::getDistance(int vertex){
-    return distances->at(vertex);
+    return distances->find(vertex)->second;
 }
-
 
 std::list<int> Dijkstra::reconstructPath(int source, int destination){
     std::list<int> path = std::list<int>();
@@ -102,14 +103,10 @@ std::list<int> Dijkstra::reconstructPath(int source, int destination){
         if (currentVertex == INT_MIN)
             handleNoConnection(source, destination);
         path.push_front(currentVertex);
-        currentVertex = predecessors->at(currentVertex);
+        currentVertex = predecessors->find(currentVertex)->second;
     }
     path.push_front(source);
     return path;
-}
-
-int getPredecessor(int vertex){
-
 }
 
 void Dijkstra::handleNoConnection(int source, int destination){
@@ -125,12 +122,12 @@ void Dijkstra::printPath(const std::list<int>& path){
 }
 
 void Dijkstra::updatePredecessors(int vertex, int predecessor){
-    predecessors->at(vertex) = predecessor;
+    predecessors->find(vertex)->second = predecessor;
 }
 
 void Dijkstra::getPath(int source, int destination){
     printPath(reconstructPath(source, destination));
-    std::cout << "distance: " << distances->at(destination) << std::endl;
+    std::cout << "distance: " << distances->find(destination)->second << std::endl;
 }
 
 
