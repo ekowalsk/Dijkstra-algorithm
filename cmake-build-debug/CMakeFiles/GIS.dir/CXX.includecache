@@ -15,24 +15,18 @@ Graph.h
 .././include/Edge.h
 
 .././include/Graph.h
-map
+unordered_map
 -
 list
 -
 Edge.h
 .././include/Edge.h
 
-.././include/Parser.h
-map
+/home/ewa/Dokumenty/GIS/projekt_Clion/src/Dijkstra.cpp
+limits.h
 -
-Edge.h
-.././include/Edge.h
-
-/home/ewa/Dokumenty/GIS/projekt_Clion/main.cpp
 iostream
 -
-Parser.h
-/home/ewa/Dokumenty/GIS/projekt_Clion/Parser.h
 Dijkstra.h
-/home/ewa/Dokumenty/GIS/projekt_Clion/Dijkstra.h
+/home/ewa/Dokumenty/GIS/projekt_Clion/src/Dijkstra.h
 
