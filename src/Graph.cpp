@@ -4,14 +4,14 @@
 #include "Graph.h"
 #include "Parser.h"
 
-Graph::Graph(std::unordered_map<int, std::list<Edge>> * e){
-    this->edges = new std::unordered_map<int, std::list<Edge>>();
+Graph::Graph(edgeMap * e){
+    this->edges = new edgeMap();
     for (auto & edge : *e)
         this->edges->insert(std::make_pair(edge.first, std::list<Edge>(edge.second)));
 }
 
 Graph::Graph(const Graph & graph){
-    this->edges = new std::unordered_map<int, std::list<Edge>>();
+    this->edges = new edgeMap();
     for (auto & edge : *graph.edges)
         this->edges->insert(std::make_pair(edge.first, std::list<Edge>(edge.second)));
 }

@@ -8,8 +8,10 @@
 
 class Graph {
 public:
+    typedef std::unordered_map<int, std::list<Edge>> edgeMap;
     typedef std::unordered_map<int, std::list<Edge>>::iterator edgeIterator;
-    Graph(std::unordered_map<int, std::list<Edge>> * edges);
+
+    Graph(edgeMap * edges);
     Graph(const Graph & graph);
     ~Graph();
     void print() const;
