@@ -13,7 +13,5 @@ public:
     int getWeight() const;
     int getDestination() const;
     void printEdge() const;
-
-    friend class Graph;
 };
 #endif //GIS_EDGE_H
