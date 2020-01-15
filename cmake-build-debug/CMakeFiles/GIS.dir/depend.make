@@ -4,6 +4,7 @@
 CMakeFiles/GIS.dir/main.cpp.o: .././include/Dijkstra.h
 CMakeFiles/GIS.dir/main.cpp.o: .././include/Edge.h
 CMakeFiles/GIS.dir/main.cpp.o: .././include/Graph.h
+CMakeFiles/GIS.dir/main.cpp.o: .././include/GraphGenerator.h
 CMakeFiles/GIS.dir/main.cpp.o: .././include/Parser.h
 CMakeFiles/GIS.dir/main.cpp.o: ../main.cpp
 
@@ -20,7 +21,13 @@ CMakeFiles/GIS.dir/src/Graph.cpp.o: .././include/Graph.h
 CMakeFiles/GIS.dir/src/Graph.cpp.o: .././include/Parser.h
 CMakeFiles/GIS.dir/src/Graph.cpp.o: ../src/Graph.cpp
 
+CMakeFiles/GIS.dir/src/GraphGenerator.cpp.o: .././include/Edge.h
+CMakeFiles/GIS.dir/src/GraphGenerator.cpp.o: .././include/Graph.h
+CMakeFiles/GIS.dir/src/GraphGenerator.cpp.o: .././include/GraphGenerator.h
+CMakeFiles/GIS.dir/src/GraphGenerator.cpp.o: ../src/GraphGenerator.cpp
+
 CMakeFiles/GIS.dir/src/Parser.cpp.o: .././include/Edge.h
+CMakeFiles/GIS.dir/src/Parser.cpp.o: .././include/Graph.h
 CMakeFiles/GIS.dir/src/Parser.cpp.o: .././include/Parser.h
 CMakeFiles/GIS.dir/src/Parser.cpp.o: ../src/Parser.cpp
 

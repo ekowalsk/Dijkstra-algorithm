@@ -231,6 +231,33 @@ src/Graph.cpp.s:
 	$(MAKE) -f CMakeFiles/GIS.dir/build.make CMakeFiles/GIS.dir/src/Graph.cpp.s
 .PHONY : src/Graph.cpp.s
 
+src/GraphGenerator.o: src/GraphGenerator.cpp.o
+
+.PHONY : src/GraphGenerator.o
+
+# target to build an object file
+src/GraphGenerator.cpp.o:
+	$(MAKE) -f CMakeFiles/GIS.dir/build.make CMakeFiles/GIS.dir/src/GraphGenerator.cpp.o
+.PHONY : src/GraphGenerator.cpp.o
+
+src/GraphGenerator.i: src/GraphGenerator.cpp.i
+
+.PHONY : src/GraphGenerator.i
+
+# target to preprocess a source file
+src/GraphGenerator.cpp.i:
+	$(MAKE) -f CMakeFiles/GIS.dir/build.make CMakeFiles/GIS.dir/src/GraphGenerator.cpp.i
+.PHONY : src/GraphGenerator.cpp.i
+
+src/GraphGenerator.s: src/GraphGenerator.cpp.s
+
+.PHONY : src/GraphGenerator.s
+
+# target to generate assembly for a file
+src/GraphGenerator.cpp.s:
+	$(MAKE) -f CMakeFiles/GIS.dir/build.make CMakeFiles/GIS.dir/src/GraphGenerator.cpp.s
+.PHONY : src/GraphGenerator.cpp.s
+
 src/Parser.o: src/Parser.cpp.o
 
 .PHONY : src/Parser.o
@@ -279,6 +306,9 @@ help:
 	@echo "... src/Graph.o"
 	@echo "... src/Graph.i"
 	@echo "... src/Graph.s"
+	@echo "... src/GraphGenerator.o"
+	@echo "... src/GraphGenerator.i"
+	@echo "... src/GraphGenerator.s"
 	@echo "... src/Parser.o"
 	@echo "... src/Parser.i"
 	@echo "... src/Parser.s"

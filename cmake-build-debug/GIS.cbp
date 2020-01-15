@@ -95,6 +95,9 @@
 		<Unit filename="/home/ewa/Dokumenty/GIS/projekt_Clion/include/Graph.h">
 			<Option target="GIS"/>
 		</Unit>
+		<Unit filename="/home/ewa/Dokumenty/GIS/projekt_Clion/include/GraphGenerator.h">
+			<Option target="GIS"/>
+		</Unit>
 		<Unit filename="/home/ewa/Dokumenty/GIS/projekt_Clion/include/Parser.h">
 			<Option target="GIS"/>
 		</Unit>
@@ -108,6 +111,9 @@
 			<Option target="GIS"/>
 		</Unit>
 		<Unit filename="/home/ewa/Dokumenty/GIS/projekt_Clion/src/Graph.cpp">
+			<Option target="GIS"/>
+		</Unit>
+		<Unit filename="/home/ewa/Dokumenty/GIS/projekt_Clion/src/GraphGenerator.cpp">
 			<Option target="GIS"/>
 		</Unit>
 		<Unit filename="/home/ewa/Dokumenty/GIS/projekt_Clion/src/Parser.cpp">

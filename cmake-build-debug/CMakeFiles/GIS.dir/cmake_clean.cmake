@@ -4,6 +4,7 @@ file(REMOVE_RECURSE
   "CMakeFiles/GIS.dir/src/Graph.cpp.o"
   "CMakeFiles/GIS.dir/src/Parser.cpp.o"
   "CMakeFiles/GIS.dir/src/Dijkstra.cpp.o"
+  "CMakeFiles/GIS.dir/src/GraphGenerator.cpp.o"
   "GIS.pdb"
   "GIS"
 )

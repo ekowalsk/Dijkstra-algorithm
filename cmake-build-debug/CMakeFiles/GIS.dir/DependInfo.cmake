@@ -8,6 +8,7 @@ set(CMAKE_DEPENDS_CHECK_CXX
   "/home/ewa/Dokumenty/GIS/projekt_Clion/src/Dijkstra.cpp" "/home/ewa/Dokumenty/GIS/projekt_Clion/cmake-build-debug/CMakeFiles/GIS.dir/src/Dijkstra.cpp.o"
   "/home/ewa/Dokumenty/GIS/projekt_Clion/src/Edge.cpp" "/home/ewa/Dokumenty/GIS/projekt_Clion/cmake-build-debug/CMakeFiles/GIS.dir/src/Edge.cpp.o"
   "/home/ewa/Dokumenty/GIS/projekt_Clion/src/Graph.cpp" "/home/ewa/Dokumenty/GIS/projekt_Clion/cmake-build-debug/CMakeFiles/GIS.dir/src/Graph.cpp.o"
+  "/home/ewa/Dokumenty/GIS/projekt_Clion/src/GraphGenerator.cpp" "/home/ewa/Dokumenty/GIS/projekt_Clion/cmake-build-debug/CMakeFiles/GIS.dir/src/GraphGenerator.cpp.o"
   "/home/ewa/Dokumenty/GIS/projekt_Clion/src/Parser.cpp" "/home/ewa/Dokumenty/GIS/projekt_Clion/cmake-build-debug/CMakeFiles/GIS.dir/src/Parser.cpp.o"
   )
 set(CMAKE_CXX_COMPILER_ID "GNU")

@@ -5,6 +5,7 @@ CMakeFiles/GIS.dir/main.cpp.o
  .././include/Dijkstra.h
  .././include/Edge.h
  .././include/Graph.h
+ .././include/GraphGenerator.h
  .././include/Parser.h
  /home/ewa/Dokumenty/GIS/projekt_Clion/main.cpp
 CMakeFiles/GIS.dir/src/Dijkstra.cpp.o
@@ -20,7 +21,13 @@ CMakeFiles/GIS.dir/src/Graph.cpp.o
  .././include/Graph.h
  .././include/Parser.h
  /home/ewa/Dokumenty/GIS/projekt_Clion/src/Graph.cpp
+CMakeFiles/GIS.dir/src/GraphGenerator.cpp.o
+ .././include/Edge.h
+ .././include/Graph.h
+ .././include/GraphGenerator.h
+ /home/ewa/Dokumenty/GIS/projekt_Clion/src/GraphGenerator.cpp
 CMakeFiles/GIS.dir/src/Parser.cpp.o
  .././include/Edge.h
+ .././include/Graph.h
  .././include/Parser.h
  /home/ewa/Dokumenty/GIS/projekt_Clion/src/Parser.cpp
