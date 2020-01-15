@@ -5,12 +5,15 @@
 #include <list>
 
 #include "Edge.h"
+#include "Graph.h"
 
 class Parser {
+private:
+    static std::ifstream openFile(const std::string& fileName);
 public:
     static std::unordered_map<int, std::list<Edge>> * parseStdin();
     static std::unordered_map<int, std::list<Edge>> * parseFile(const std::string& fileName);
-    static std::ifstream openFile(const std::string& fileName);
+    static void parseGraphToFile(Graph::edgeMap * edges, const std::string& fileName);
 };
 
 #endif //GIS_PARSER_H

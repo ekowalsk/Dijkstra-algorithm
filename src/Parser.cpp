@@ -45,9 +45,24 @@ std::ifstream Parser::openFile(const std::string& fileName){
     std::ifstream inFile;
     inFile.open(fileName);
     if (!inFile) {
-        std::cerr << "Unable to open file test_graph.txt";
+        std::cerr << "Unable to open file " << fileName;
         exit(1);
     }
     return inFile;
+}
+
+void Parser::parseGraphToFile(Graph::edgeMap * edgesMap, const std::string& fileName){
+    std::ofstream outFile;
+    outFile.open(fileName, std::ofstream::trunc);
+    if (!outFile) {
+        std::cerr << "Unable to open file " << fileName;
+        exit(1);
+    }
+    
+    for (auto &mapElement : *edgesMap){
+        for (auto edge : mapElement.second) {
+            outFile << mapElement.first << " " << edge.getDestination() << " " << edge.getWeight() << std::endl;
+        }
+    }
 }
 
