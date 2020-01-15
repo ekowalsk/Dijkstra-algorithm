@@ -3,6 +3,6 @@ project(GIS)
 
 set(CMAKE_CXX_STANDARD 14)
 
-add_executable(GIS main.cpp include/Edge.h src/Edge.cpp include/Graph.h src/Graph.cpp src/Parser.cpp include/Parser.h include/Dijkstra.h src/Dijkstra.cpp)
+add_executable(GIS main.cpp include/Edge.h src/Edge.cpp include/Graph.h src/Graph.cpp src/Parser.cpp include/Parser.h include/Dijkstra.h src/Dijkstra.cpp include/GraphGenerator.h src/GraphGenerator.cpp)
 
 include_directories(./include)
