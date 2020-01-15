@@ -3,16 +3,16 @@
 
 #include "Dijkstra.h"
 
-Dijkstra::Dijkstra(Graph pGraph): graph(pGraph){
+Dijkstra::Dijkstra(const Graph& pGraph): graph(pGraph){
     initState();
 }
 
 void Dijkstra::initState(){
     predecessors = new std::unordered_map<int, int>();
     distances = new std::unordered_map<int, int>();
-    for (auto it = graph.edges->begin(); it != graph.edges->end(); it++){
-        if (predecessors->find(it->first) == predecessors->end())
-            predecessors->insert(std::make_pair(it->first, INT_MIN));
+    for (auto & edge : *graph.edges){
+        if (predecessors->find(edge.first) == predecessors->end())
+            predecessors->insert(std::make_pair(edge.first, INT_MIN));
     }
 }
 
@@ -66,10 +66,10 @@ void Dijkstra::updateDistance(int vertex, int distance){
 int Dijkstra::popPriorityQueue(std::list<int> * priorityQueue){
     int minVertex = *(priorityQueue->begin());
     auto minIterator = priorityQueue->begin();
-    int minDistance = distances->find(minVertex)->second;
+    int minDistance = getDistance(minVertex);
     for (auto element  = priorityQueue->begin(); element != priorityQueue->end(); element++){
-        if (minDistance > distances->find(*element)->second){
-            minDistance = distances->find(*element)->second;
+        if (minDistance > getDistance(*element)){
+            minDistance = getDistance(*element);
             minVertex = *element;
             minIterator = element;
         }
@@ -104,10 +104,14 @@ std::list<int> Dijkstra::reconstructPath(int source, int destination){
         if (currentVertex == INT_MIN)
             handleNoConnection(source, destination);
         path.push_front(currentVertex);
-        currentVertex = predecessors->find(currentVertex)->second;
+        currentVertex = getPredecessor(currentVertex);
     }
     path.push_front(source);
     return path;
+}
+
+int Dijkstra::getPredecessor(int vertex){
+    return predecessors->find(vertex)->second;
 }
 
 void Dijkstra::handleNoConnection(int source, int destination){

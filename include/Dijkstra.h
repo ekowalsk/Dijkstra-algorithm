@@ -18,13 +18,14 @@ private:
     void updateSuccessorsDistances(int vertex);
     void updatePredecessors(int vertex, int predecessor);
     int getDistance(int vertex);
+    int getPredecessor(int vertex);
     std::list<int> reconstructPath(int source, int destination);
     void calculate_shortest_path(int source, int destination);
     std::list<int> * createPriorityQueue();
     static void printPath(const std::list<int>& path);
     static void handleNoConnection(int source, int destination);
 public:
-    explicit Dijkstra(Graph pGraph);
+    explicit Dijkstra(const Graph& pGraph);
     ~Dijkstra();
     void shortest_path(int source, int destination = INT_MIN);
     void getPath(int source, int destination);
