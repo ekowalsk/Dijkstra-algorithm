@@ -17,14 +17,14 @@ void Dijkstra::initState(){
 }
 
 void Dijkstra::shortest_path(int source, int destination){
-    calculate_shortest_path(source, destination);
+    calculateShortestPath(source, destination);
     if (destination != INT_MIN) {
         printPath(reconstructPath(source, destination));
         std::cout << "distance: " << distances->at(destination) << std::endl;
     }
 }
 
-void Dijkstra::calculate_shortest_path(int source, int destination){
+void Dijkstra::calculateShortestPath(int source, int destination){
     if (!isValidVertex(source) || (!isValidVertex(destination) && destination != INT_MIN)){
         std::cerr << "Invalid source or destination vertex. " << std::endl;
         exit(-1);
