@@ -88,14 +88,9 @@ int Dijkstra::popPriorityQueue(std::list<int> * priorityQueue){
 void Dijkstra::updateSuccessorsDistances(int predecessor){
     auto successorsEdges = graph.getOutgoingEdges(predecessor);
     for (auto & successor : successorsEdges->second){
-        /* graph.getOutgoingEdges(currentVertex) can return edges, that have already been deleted from priority queue */
-        try{
-            if (getDistance(successor.getDestination()) > getDistance(predecessor) + successor.getWeight()) {
-                updateDistance(successor.getDestination(), getDistance(predecessor) + successor.getWeight());
-                updatePredecessors(successor.getDestination(), predecessor);
-            }
-        } catch (const std::out_of_range& e){
-            continue;
+        if (getDistance(successor.getDestination()) > getDistance(predecessor) + successor.getWeight()) {
+            updateDistance(successor.getDestination(), getDistance(predecessor) + successor.getWeight());
+            updatePredecessors(successor.getDestination(), predecessor);
         }
     }
 }
