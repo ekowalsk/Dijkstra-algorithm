@@ -38,7 +38,7 @@ double Dijkstra::calculateShortestPath(int source, int destination){
     updateDistance(source, 0);
     auto priorityQueue = createPriorityQueue();
     int currentVertex = popPriorityQueue(priorityQueue);
-    while (!priorityQueue->empty() && currentVertex != INT_MIN) {
+    while (!priorityQueue->empty() && getDistance(currentVertex) != INT_MAX) {
         if (source == destination)
             break;
         updateSuccessorsDistances(currentVertex);
@@ -81,12 +81,8 @@ int Dijkstra::popPriorityQueue(std::list<int> * priorityQueue){
             minIterator = element;
         }
     }
-    if (minDistance != INT_MAX) {
-        priorityQueue->erase(minIterator);
-        return minVertex;
-    }
-    else
-    return INT_MIN;
+    priorityQueue->erase(minIterator);
+    return minVertex;
 }
 
 void Dijkstra::updateSuccessorsDistances(int predecessor){
