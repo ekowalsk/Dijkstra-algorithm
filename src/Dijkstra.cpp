@@ -16,29 +16,36 @@ void Dijkstra::initState(){
     }
 }
 
-void Dijkstra::shortest_path(int source, int destination){
-    calculateShortestPath(source, destination);
-    if (destination != INT_MIN) {
-        printPath(reconstructPath(source, destination));
-        std::cout << "distance: " << distances->at(destination) << std::endl;
+void Dijkstra::shortestPath(int source, int destination){
+    double elapsed_seconds = calculateShortestPath(source, destination);
+    std::cout << "czas obliczeń: " << elapsed_seconds <<  " sekund" << std::endl;
+    if (destination != INT_MIN)
+        getPath(source, destination);
+    else {
+        for (auto &vertex : *distances)
+            if (vertex.first != source)
+               getPath(source, vertex.first);
     }
 }
 
-void Dijkstra::calculateShortestPath(int source, int destination){
+double Dijkstra::calculateShortestPath(int source, int destination){
     if (!isValidVertex(source) || (!isValidVertex(destination) && destination != INT_MIN)){
         std::cerr << "Invalid source or destination vertex. " << std::endl;
         exit(-1);
     }
     clearState();
+    auto start = std::chrono::steady_clock::now();
     updateDistance(source, 0);
     auto priorityQueue = createPriorityQueue();
-    int currentVertex = source;
-    while (!priorityQueue->empty()) {
+    int currentVertex = popPriorityQueue(priorityQueue);
+    while (!priorityQueue->empty() && currentVertex != INT_MIN) {
         if (source == destination)
             break;
         updateSuccessorsDistances(currentVertex);
         currentVertex = popPriorityQueue(priorityQueue);
     }
+    auto end = std::chrono::steady_clock::now();
+    return std::chrono::duration_cast<std::chrono::duration<double> >(end - start).count();
 }
 
 std::list<int> * Dijkstra::createPriorityQueue() {
@@ -74,8 +81,12 @@ int Dijkstra::popPriorityQueue(std::list<int> * priorityQueue){
             minIterator = element;
         }
     }
-    priorityQueue->erase(minIterator);
-    return minVertex;
+    if (minDistance != INT_MAX) {
+        priorityQueue->erase(minIterator);
+        return minVertex;
+    }
+    else
+    return INT_MIN;
 }
 
 void Dijkstra::updateSuccessorsDistances(int predecessor){
@@ -97,17 +108,16 @@ int Dijkstra::getDistance(int vertex){
     return distances->find(vertex)->second;
 }
 
-std::list<int> Dijkstra::reconstructPath(int source, int destination){
-    std::list<int> path = std::list<int>();
+bool Dijkstra::reconstructPath(int source, int destination, std::list<int> * path){
     int currentVertex = destination;
     while(currentVertex != source){
         if (currentVertex == INT_MIN)
-            handleNoConnection(source, destination);
-        path.push_front(currentVertex);
+            return false;
+        path->push_front(currentVertex);
         currentVertex = getPredecessor(currentVertex);
     }
-    path.push_front(source);
-    return path;
+    path->push_front(source);
+    return true;
 }
 
 int Dijkstra::getPredecessor(int vertex){
@@ -115,8 +125,7 @@ int Dijkstra::getPredecessor(int vertex){
 }
 
 void Dijkstra::handleNoConnection(int source, int destination){
-    std::cerr << "connection between " << source << " and " << destination << " does not exist " << std::endl;
-    exit(1);
+    std::cout << "connection between " << source << " and " << destination << " does not exist " << std::endl;
 }
 
 void Dijkstra::printPath(const std::list<int>& path){
@@ -131,8 +140,12 @@ void Dijkstra::updatePredecessors(int vertex, int predecessor){
 }
 
 void Dijkstra::getPath(int source, int destination){
-    printPath(reconstructPath(source, destination));
-    std::cout << "distance: " << distances->find(destination)->second << std::endl;
+    std::list<int> path = std::list<int>();
+    if (reconstructPath(source, destination, &path)) {
+        printPath(path);
+        std::cout << "distance: " << distances->find(destination)->second << std::endl;
+    } else
+        handleNoConnection(source, destination);
 }
 
 
